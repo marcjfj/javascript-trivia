@@ -193,7 +193,7 @@ function countDown(num) {
   TweenMax.to('.timer', 1, { y: 0, ease: Elastic.easeOut, delay: 1 });
 
   const timer = TweenMax.to('.timer-inner', time, {
-    x: `-=${150 * time + 50}`,
+    x: `-=${150 * time + 65}`,
     delay: 1,
     ease: Linear.easeNone,
     onComplete: endRound,
