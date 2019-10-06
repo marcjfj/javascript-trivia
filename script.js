@@ -183,6 +183,7 @@ function countDown(num) {
     snippet.style.display = 'block';
     const code = document.querySelector('.code');
     code.textContent = questions[num].snippet;
+    Prism.highlightAll();
   } else {
     snippet.style.display = 'none';
   }
