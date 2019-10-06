@@ -167,8 +167,11 @@ function countDown(num) {
     timerBox.prepend(numBlock);
   }
   TweenMax.to('.result', 1, {
+    transformOrigin: '50% 50%',
     y: '120vh',
-    ease: Elastic.easeIn,
+    rotation: '+=180',
+    scale: 0,
+    ease: Back.easeIn.config(1),
   });
   question.textContent = questions[num].question;
   const snippet = document.querySelector('.snippet');
@@ -201,7 +204,7 @@ function countDown(num) {
   });
   TweenMax.to('.round', 1, {
     y: 0,
-    ease: Elastic.easeOut,
+    ease: Elastic.easeOut.config(0.3),
     opacity: 1,
     delay: 1,
   });
@@ -250,10 +253,13 @@ function endRound(why, exp) {
     correctWrong.textContent = 'Out of time!';
   }
   TweenMax.to('.result', 2, {
+    transformOrigin: '50% 50%',
     y: 0,
+    rotation: 0,
     opacity: 1,
+    scale: 1,
     delay: 0.1,
-    ease: Elastic.easeOut,
+    ease: Elastic.easeOut.config(0.2, 0.2),
   });
   round += 1;
   if (round < questions.length) {
@@ -276,8 +282,10 @@ function gameOver() {
   correctVal.textContent = correct;
   wrongVal.textContent = wrong;
   TweenMax.to('.result', 2, {
+    transformOrigin: '50% 50%',
     y: '120vh',
-    opacity: 1,
+    opacity: 0,
+    scale: 0,
     delay: 0.1,
     ease: Elastic.easeOut,
   });
@@ -285,7 +293,7 @@ function gameOver() {
     y: 0,
     opacity: 1,
     delay: 0.1,
-    ease: Elastic.easeOut,
+    ease: Elastic.easeOut.config(0.3),
   });
 }
 
@@ -293,11 +301,11 @@ playAgain.addEventListener('click', () => {
   round = 0;
   correct = 0;
   wrong = 0;
-  TweenMax.to('.overview', 2, {
+  TweenMax.to('.overview', 1, {
     y: '120vh',
     opacity: 1,
     delay: 0.1,
-    ease: Elastic.easeOut,
+    ease: Elastic.easeIn.config(0.3),
   });
   countDown(round);
 });
