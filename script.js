@@ -211,7 +211,7 @@ function countDown(num) {
   TweenMax.staggerTo(
     '.answer',
     0.6,
-    { y: 0, ease: Back.easeOut.config(0.7), delay: 1 },
+    { y: 0, scale: 1, ease: Back.easeOut.config(0.7), delay: 1 },
     0.1
   );
 }
@@ -238,7 +238,12 @@ beginButton.addEventListener('click', () => {
 });
 
 function endRound(why, exp) {
-  TweenMax.staggerTo('.answers > *', 1, { y: '120vh' }, 0.1);
+  TweenMax.staggerTo(
+    '.answers > *',
+    1,
+    { y: '120vh', scale: 0, ease: Power1.easeIn },
+    0.1
+  );
   TweenMax.to('.round', 1, { y: '120vh', opacity: 0, delay: 0.3 });
 
   explanation.textContent = exp;
