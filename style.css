@@ -86,7 +86,7 @@ body{
 
 }
 .intro{
-    transform: translateY(-120px);
+    transform: translateY(-70px);
     text-align: center;
     border-radius: 8px;
     padding:70px 40px;
@@ -249,6 +249,8 @@ pre[class*="language-"]{
     .intro{
         margin: 10px;
         width: calc(100% - 20px);
+        
+        transform: translateY(-120px);
     }
     .question, .result p{
         font-size: 1em;
