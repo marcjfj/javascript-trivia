@@ -205,6 +205,11 @@ button:hover{
 
 pre[class*="language-"]{
     border:none;
+    background: rgb(48, 48, 47);
+    background: linear-gradient(155deg, rgb(49, 48, 47) 0%, rgb(37, 37, 35) 100%);
+    box-shadow: inset 0px 0px 20px 0px rgba(0, 0, 0, 0.295), inset 0px 2px 5px -3px rgba(0, 0, 0, 0.425); 
+
+
 }
 
 .mode{
