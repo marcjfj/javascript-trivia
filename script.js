@@ -8,6 +8,7 @@ const wrongVal = document.querySelector('.wrong-total');
 const playAgain = document.querySelector('.play-again');
 const modeOptions = document.querySelectorAll('.mode-option');
 const beginButton = document.querySelector('.begin');
+const overview = document.querySelector('.overview');
 
 let time = 30;
 let round = 0;
@@ -158,6 +159,9 @@ const questions = [
   },
 ];
 
+overview.style.display = 'none';
+playAgain.disabled = true;
+
 function countDown(num) {
   timerBox.innerHTML = '';
   for (let i = 0; i <= time; i++) {
@@ -185,6 +189,7 @@ function countDown(num) {
   answers.innerHTML = '';
   questions[num].answers.forEach(answer => {
     const answerButton = document.createElement('button');
+    answerButton.disabled = true;
     answerButton.classList.add('answer');
     answerButton.textContent = answer.answer;
     answers.append(answerButton);
@@ -211,11 +216,22 @@ function countDown(num) {
   TweenMax.staggerTo(
     '.answer',
     0.6,
-    { y: 0, scale: 1, ease: Back.easeOut.config(0.7), delay: 1 },
+    {
+      y: 0,
+      scale: 1,
+      ease: Back.easeOut.config(0.7),
+      delay: 1,
+      onComplete: enableAnswers,
+    },
     0.1
   );
 }
-
+function enableAnswers() {
+  const answerButtons = document.querySelectorAll('.answer');
+  answerButtons.forEach(button => {
+    button.disabled = false;
+  });
+}
 modeOptions.forEach(mode => {
   mode.addEventListener('click', () => {
     modeOptions.forEach(button => button.classList.remove('selected'));
@@ -230,6 +246,8 @@ modeOptions.forEach(mode => {
   });
 });
 beginButton.addEventListener('click', () => {
+  modeOptions.forEach(button => (button.disabled = true));
+  beginButton.disabled = true;
   TweenMax.to('.intro', 1, {
     x: '120vw',
     ease: Elastic.easeIn,
@@ -238,6 +256,10 @@ beginButton.addEventListener('click', () => {
 });
 
 function endRound(why, exp) {
+  const answerButtons = document.querySelectorAll('.answer');
+  answerButtons.forEach(button => {
+    button.disabled = true;
+  });
   TweenMax.staggerTo(
     '.answers > *',
     1,
@@ -294,6 +316,8 @@ function gameOver() {
     delay: 0.1,
     ease: Elastic.easeOut,
   });
+  playAgain.disabled = false;
+  overview.style.display = 'flex';
   TweenMax.to('.overview', 2, {
     y: 0,
     opacity: 1,
@@ -306,11 +330,17 @@ playAgain.addEventListener('click', () => {
   round = 0;
   correct = 0;
   wrong = 0;
+  playAgain.disabled = true;
+  
+  document.querySelector('.begin').disabled = true;
   TweenMax.to('.overview', 1, {
     y: '120vh',
     opacity: 1,
     delay: 0.1,
     ease: Elastic.easeIn.config(0.3),
+    onComplete(){
+      overview.style.display = 'none';
+    }
   });
   countDown(round);
 });
