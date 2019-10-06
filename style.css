@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css?family=Anton|Fira+Mono&display=swap');
+
+*, code.language-js{
+    box-sizing: border-box;
+    font-family: 'Fira Mono', monospace;
+    
+}
+
+body{
+    margin: 0;
+    min-height: 100vh;
+    background: rgb(48,44,36);
+    background: linear-gradient(327deg, rgba(48,44,36,1) 0%, rgba(65,63,56,1) 100%);
+    overflow: hidden;
+}
+
+.timer{
+    height: 150px;
+    background: rgb(69,69,66);
+    background: linear-gradient(155deg, rgba(69,69,66,1) 0%, rgba(22,22,21,1) 100%);
+    overflow: hidden;
+    display: flex;
+    position: relative;
+    /* border: 3px solid rgb(75, 52, 19); */
+    align-items: center;
+    border-right: 0px;
+    border-left: 0px;
+    transform: translateY(-120%);
+    box-shadow: inset 0px 0px 40px 0px rgba(0, 0, 0, 0.253), inset 0px 2px 10px -3px rgba(0, 0, 0, 0.253); 
+}
+.timer::after{
+    content: "";
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    left: 50%;
+    bottom: -25px;
+    transform: rotate(45deg);
+    background: rgb(185,173,65);
+    background: linear-gradient(165deg, rgba(185,173,65,1) 0%, rgba(159,147,48,1) 100%);
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.404); 
+    
+}
+.timer-inner{
+    display: flex;
+    width: auto;
+    transform: translateX(50vw);
+    box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.452), 0px 2px 10px -3px rgba(0, 0, 0, 0.692); 
+    background: rgb(79,78,73);
+    background: linear-gradient(10deg, rgb(70, 70, 69) 0%, rgb(43, 43, 41) 100%);
+}
+
+.num-block{
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    flex-shrink: 0;
+    display: flex;
+    
+    
+    font-size: 5em;
+    
+    font-family: 'Anton', sans-serif;
+    color: rgba(255, 255, 255, 0.301);
+}
+.game{
+    height: calc(100vh - 170px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.intro{
+    transform: translateY(-120px);
+    text-align: center;
+    border-radius: 8px;
+    padding:70px 40px;
+    box-shadow: inset 0px 0px 40px 0px rgba(0, 0, 0, 0.295), inset 0px 2px 10px -3px rgba(0, 0, 0, 0.514); 
+
+    background: rgb(69,69,68);
+background: linear-gradient(155deg, rgba(69,69,68,1) 0%, rgba(22,22,21,1) 100%);
+}
+.intro h1{
+    font-size: 5em;
+    margin: 10px;
+    color: rgba(230, 207, 79, 0.849);
+    font-weight: 400;
+    text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.384);
+}
+.intro h3, .result p{
+    color: rgba(226, 225, 212, 0.89);
+    font-weight: 400;
+    font-size: 1.5em;
+}
+.intro button, .overview button{
+    border: 0;
+    padding: 20px 50px;
+    background: rgb(185,173,65);
+    font-size: 1.5em;
+    margin-top: 50px;
+    border-radius: 5px;
+    color: rgba(0, 0, 0, 0.733);
+    background: linear-gradient(165deg, rgba(185,173,65,1) 0%, rgba(159,147,48,1) 100%);
+    box-shadow: 0px 2px 10px -2px rgba(0, 0, 0, 0.404), 0px 0px 30px 0px rgba(0, 0, 0, 0.404); 
+}
+
+.round, .result, .overview{
+    top: 170px;
+    left: 0;
+    width: 100vw;
+    height: calc(100vh - 170px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    transform: translateY(120%);
+    text-align: center;
+    
+
+}
+
+.question{
+    font-size: 2em;
+    color: rgba(255, 255, 255, 0.658);
+    max-width: 800px;
+    margin: 20px auto;
+    line-height: 1.5;
+}
+
+.answers{
+    display: flex;
+    width: 100%;
+    max-width: 800px;
+    flex-wrap: wrap;
+    margin-top: 50px;
+
+}
+.answers button{
+    font-size: 1.2em;
+    border: none;
+    padding: 10px;
+    margin: 10px;
+    flex-basis: calc(50% - 20px);
+    background: rgb(185,173,65);
+    font-size: 1.5em;
+    border-radius: 5px;
+    display: block;
+    color: rgba(0, 0, 0, 0.733);
+    background: linear-gradient(165deg, rgba(185,173,65,1) 0%, rgba(159,147,48,1) 100%);
+    box-shadow: 0px 2px 10px -2px rgba(0, 0, 0, 0.288), 0px 0px 30px 0px rgba(0, 0, 0, 0.301);
+    transition: background-color .3s;
+}
+button:hover{
+    background: rgba(255, 255, 255, 0.719);
+}
+
+.answer{
+    transform: translateY(120vh);
+}
+
+.result h1, .overview h1{
+    font-size: 5em;
+    margin: 10px;
+    color: rgba(230, 207, 79, 0.849);
+    font-weight: 400;
+    text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.384);
+}
+.result p{
+    max-width: 800px;
+    margin: 20px auto;
+    line-height: 1.5;
+}
+
+.overview h1{
+    font-size: 3em;
+}
+.overview div{
+    margin: 20px 0;
+
+}
+.overview span{
+    font-size: 2em;
+    color: rgba(255, 255, 255, 0.685);
+
+}
+.overview button{
+
+}
+
+pre[class*="language-"]{
+    border:none;
+}
+
+.mode{
+    display: flex;
+    justify-content: stretch;
+    align-items: center;
+    margin: 10px auto;
+    margin-top: 30px;
+    /* border: 2px solid rgb(185,173,65); */
+    border-radius: 3px;
+    box-shadow: inset 0px 0px 40px 0px rgba(0, 0, 0, 0.295), inset 0px 2px 10px -3px rgba(0, 0, 0, 0.514); 
+    overflow: hidden;
+}
+
+.mode button{
+    background: transparent;
+    padding: 5px;
+    flex-basis: 34%;
+    box-shadow: none;
+    margin: 0px;
+    color: rgba(255, 255, 255, 0.74);
+    transition: background .3s, color .3s;
+    border-radius: 0;
+}
+.mode button:hover{
+    background: rgba(255, 255, 255, 0.692); 
+    color: rgba(0, 0, 0, 0.829);
+    box-shadow: inset 0px 0px 30px 0px rgba(0, 0, 0, 0.295), inset 0px 2px 10px -3px rgba(0, 0, 0, 0.514); 
+
+}
+.mode button.selected{
+    background: rgb(185,173,65);
+    color: rgba(0, 0, 0, 0.829);
+    box-shadow: inset 0px 0px 30px 0px rgba(0, 0, 0, 0.295), inset 0px 2px 10px -3px rgba(0, 0, 0, 0.514); 
+
+}

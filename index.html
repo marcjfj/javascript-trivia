@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="prism.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Trivia Game</title>
+</head>
+
+<body>
+    <main>
+        <div class="timer">
+            <div class="timer-inner"></div>
+        </div>
+        <section class="game">
+            <div class="intro">
+                <h3>Welcome to</h3>
+                <h1>JavaScript Trivia!</h1>
+                <div class="mode">
+                    <div class="selection"></div>
+                    <button class="mode-option easy selected">EASY</button>
+                    <button class="mode-option medium">MEDIUM</button>
+                    <button class="mode-option hard">HARD</button>
+                </div>
+                <button class="begin">BEGIN</button>
+            </div>
+
+        </section>
+        <section class="round">
+            <p class="question">What is the square root of pi?</p>
+            <div class="snippet">
+                <pre>
+                    <code class="code language-js">
+                        console.log('what-up');
+                    </code>
+                </pre>
+            </div>
+            <div class="answers">
+                <button class="answer">2.5</button>
+                <button class="answer">2.5</button>
+                <button class="answer">2.5</button>
+                <button class="answer">2.5</button>
+            </div>
+        </section>
+        <section class="result">
+            <h1 class="correct-wrong"></h1>
+            <p class="explanation"></p>
+        </section>
+        <section class="overview">
+            <h1>The results are in!</h1>
+            <div class="correct"><span>Correct: </span><span class="correct-total"></span></div>
+            <div class="wrong"><span>Wrong: </span><span class="wrong-total"></span></div>
+            <button class="play-again">Play Again</button>
+        </section>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+    <script src="prism.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
