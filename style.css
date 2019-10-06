@@ -246,6 +246,10 @@ pre[class*="language-"]{
     .intro h1{
         font-size: 3em;
     }
+    .intro{
+        margin: 10px;
+        width: calc(100% - 20px);
+    }
     .question, .result p{
         font-size: 1em;
         padding: 20px;
@@ -260,5 +264,8 @@ pre[class*="language-"]{
         font-size: 1em;
         margin: 5px;
         flex-basis: calc(50% - 10px);
+    }
+    button.mode-option{
+        font-size: .8em;;
     }
 }
