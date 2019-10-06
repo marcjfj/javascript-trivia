@@ -16,7 +16,7 @@ let correct = 0;
 let wrong = 0;
 const questions = [
   {
-    question: 'In what year was javascript created?',
+    question: 'In what year was JavaScript created?',
 
     answers: [
       {
