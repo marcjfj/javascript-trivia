@@ -131,7 +131,7 @@ const questions = [
       },
     ],
     explanation:
-      'Through coercion, both "empty array" and "not array" simplify to 0',
+      'Through coercion, both "empty array" and "not array" simplify to 0. The output is "true"',
   },
   {
     question: 'What will be logged to the console?',
@@ -155,7 +155,7 @@ const questions = [
       },
     ],
     explanation:
-      'With no arguments, Math.min() returns infinity and Math.max() returns -infinity',
+      'With no arguments, Math.min() returns infinity and Math.max() returns -infinity. The output is "false"',
   },
 ];
 
